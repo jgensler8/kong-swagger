@@ -17,5 +17,5 @@ type Consumer struct {
 
 	CustomId string `json:"custom_id,omitempty"`
 
-	CreatedAt int32 `json:"created_at,omitempty"`
+	CreatedAt int64 `json:"created_at,omitempty"`
 }

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConsumerId** | **string** |  | [optional] [default to null]
-**CreatedAt** | **int32** |  | [optional] [default to null]
+**CreatedAt** | **int64** |  | [optional] [default to null]
 **Id** | **string** |  | [optional] [default to null]
 **Key** | **string** |  | [optional] [default to null]
 
