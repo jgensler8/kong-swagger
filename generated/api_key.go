@@ -15,7 +15,7 @@ type ApiKey struct {
 
 	ConsumerId string `json:"consumer_id,omitempty"`
 
-	CreatedAt int32 `json:"created_at,omitempty"`
+	CreatedAt int64 `json:"created_at,omitempty"`
 
 	Id string `json:"id,omitempty"`
 

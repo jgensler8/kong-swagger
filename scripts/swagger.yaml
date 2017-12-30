@@ -58,6 +58,12 @@ paths:
       required: true
     post:
       description: Create an API Key
+      parameters:
+        - in: body
+          name: empty
+          description: An empty body.
+          schema:
+            type: object
       responses:
         '201':
           description: Created an API Key
@@ -170,6 +176,7 @@ definitions:
         example: "abc123"
       created_at:
         type: integer
+        format: int64
         example: 1422386534
   APIKey:
     description: "APIKey belonging to a consumer"
@@ -180,6 +187,7 @@ definitions:
         example: "876bf719-8f18-4ce5-cc9f-5b5af6c36007"
       created_at:
         type: integer
+        format: int64
         example: 1443371053000
       id:
         type: string

@@ -219,8 +219,10 @@ func (a *DefaultApiService) ConsumersConsumerIdKeyAuthGet(consumerId string) (In
  Create an API Key
 
  @param consumerId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "empty" (interface{}) An empty body.
  @return ApiKey*/
-func (a *DefaultApiService) ConsumersConsumerIdKeyAuthPost(consumerId string) (ApiKey,  *http.Response, error) {
+func (a *DefaultApiService) ConsumersConsumerIdKeyAuthPost(consumerId string, localVarOptionals map[string]interface{}) (ApiKey,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -256,6 +258,10 @@ func (a *DefaultApiService) ConsumersConsumerIdKeyAuthPost(consumerId string) (A
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarTempParam, localVarOk := localVarOptionals["empty"].(interface{}); localVarOk {
+		localVarPostBody = &localVarTempParam
 	}
 	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
