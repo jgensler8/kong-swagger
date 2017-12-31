@@ -17,5 +17,7 @@ type Consumer struct {
 
 	CustomId string `json:"custom_id,omitempty"`
 
+	Username string `json:"username,omitempty"`
+
 	CreatedAt int64 `json:"created_at,omitempty"`
 }

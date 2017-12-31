@@ -21,12 +21,14 @@ All URIs are relative to *https://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**ConsumersConsumerIdGet**](docs/DefaultApi.md#consumersconsumeridget) | **Get** /consumers/{consumer_id} | 
-*DefaultApi* | [**ConsumersConsumerIdKeyAuthApikeyIdDelete**](docs/DefaultApi.md#consumersconsumeridkeyauthapikeyiddelete) | **Delete** /consumers/{consumer_id}/key-auth/{apikey_id} | 
-*DefaultApi* | [**ConsumersConsumerIdKeyAuthGet**](docs/DefaultApi.md#consumersconsumeridkeyauthget) | **Get** /consumers/{consumer_id}/key-auth | 
-*DefaultApi* | [**ConsumersConsumerIdKeyAuthPost**](docs/DefaultApi.md#consumersconsumeridkeyauthpost) | **Post** /consumers/{consumer_id}/key-auth | 
-*DefaultApi* | [**ConsumersDelete**](docs/DefaultApi.md#consumersdelete) | **Delete** /consumers | 
-*DefaultApi* | [**ConsumersPost**](docs/DefaultApi.md#consumerspost) | **Post** /consumers | 
+*DefaultApi* | [**CreateAPIKey**](docs/DefaultApi.md#createapikey) | **Post** /consumers/{consumer_id}/key-auth | 
+*DefaultApi* | [**CreateConsumer**](docs/DefaultApi.md#createconsumer) | **Post** /consumers | 
+*DefaultApi* | [**CreatePlugin**](docs/DefaultApi.md#createplugin) | **Post** /apis/{api_id}/plugins | 
+*DefaultApi* | [**DeleteAPIKey**](docs/DefaultApi.md#deleteapikey) | **Delete** /consumers/{consumer_id}/key-auth/{apikey_id} | 
+*DefaultApi* | [**DeleteConsumer**](docs/DefaultApi.md#deleteconsumer) | **Delete** /consumers | 
+*DefaultApi* | [**GetConsumer**](docs/DefaultApi.md#getconsumer) | **Get** /consumers/{consumer_id} | 
+*DefaultApi* | [**ListAPIKeys**](docs/DefaultApi.md#listapikeys) | **Get** /consumers/{consumer_id}/key-auth | 
+*DefaultApi* | [**ListPlugins**](docs/DefaultApi.md#listplugins) | **Get** /apis/{api_id}/plugins | 
 *DefaultApi* | [**Oauth2Get**](docs/DefaultApi.md#oauth2get) | **Get** /oauth2 | 
 *DefaultApi* | [**Oauth2TokensTokenGet**](docs/DefaultApi.md#oauth2tokenstokenget) | **Get** /oauth2_tokens/{token} | 
 
@@ -37,8 +39,14 @@ Class | Method | HTTP request | Description
  - [Consumer](docs/Consumer.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
- - [InlineResponse2001Data](docs/InlineResponse2001Data.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
+ - [InlineResponse2002Data](docs/InlineResponse2002Data.md)
+ - [InlineResponse2003](docs/InlineResponse2003.md)
+ - [Plugin](docs/Plugin.md)
+ - [PluginConfigCors](docs/PluginConfigCors.md)
+ - [PluginConfigJwt](docs/PluginConfigJwt.md)
+ - [PluginConfigKeyAuth](docs/PluginConfigKeyAuth.md)
+ - [PluginConfigRateLimiting](docs/PluginConfigRateLimiting.md)
 
 
 ## Documentation For Authorization
