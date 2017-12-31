@@ -80,13 +80,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreatePlugin**
-> Plugin CreatePlugin(optional)
+> Plugin CreatePlugin(apiId, optional)
 
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+  **apiId** | **string**|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -94,7 +95,8 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | [**Plugin**](Plugin.md)| The plugin name to activate | 
+ **apiId** | **string**|  | 
+ **plugin** | [**Plugin**](Plugin.md)| The plugin name to activate | 
 
 ### Return type
 
@@ -221,11 +223,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ListPlugins**
-> InlineResponse2001 ListPlugins()
+> InlineResponse2001 ListPlugins(apiId)
 
 
 ### Required Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **apiId** | **string**|  | 
 
 ### Return type
 

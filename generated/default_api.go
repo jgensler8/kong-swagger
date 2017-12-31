@@ -158,10 +158,11 @@ func (a *DefaultApiService) CreateConsumer(consumerInput Consumer) ( *http.Respo
 
 /* DefaultApiService 
 
+ @param apiId 
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "name" (Plugin) The plugin name to activate
+     @param "plugin" (Plugin) The plugin name to activate
  @return Plugin*/
-func (a *DefaultApiService) CreatePlugin(localVarOptionals map[string]interface{}) (Plugin,  *http.Response, error) {
+func (a *DefaultApiService) CreatePlugin(apiId string, localVarOptionals map[string]interface{}) (Plugin,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -172,6 +173,7 @@ func (a *DefaultApiService) CreatePlugin(localVarOptionals map[string]interface{
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/apis/{api_id}/plugins"
+	localVarPath = strings.Replace(localVarPath, "{"+"api_id"+"}", fmt.Sprintf("%v", apiId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -198,7 +200,7 @@ func (a *DefaultApiService) CreatePlugin(localVarOptionals map[string]interface{
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	if localVarTempParam, localVarOk := localVarOptionals["name"].(Plugin); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["plugin"].(Plugin); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
 	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -472,8 +474,9 @@ func (a *DefaultApiService) ListAPIKeys(consumerId string) (InlineResponse200,  
 
 /* DefaultApiService 
 
+ @param apiId 
  @return InlineResponse2001*/
-func (a *DefaultApiService) ListPlugins() (InlineResponse2001,  *http.Response, error) {
+func (a *DefaultApiService) ListPlugins(apiId string) (InlineResponse2001,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -484,6 +487,7 @@ func (a *DefaultApiService) ListPlugins() (InlineResponse2001,  *http.Response, 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/apis/{api_id}/plugins"
+	localVarPath = strings.Replace(localVarPath, "{"+"api_id"+"}", fmt.Sprintf("%v", apiId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
