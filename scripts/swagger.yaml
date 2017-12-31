@@ -1,4 +1,3 @@
----
 swagger: '2.0'
 info:
   version: 1.1.0
@@ -12,6 +11,7 @@ produces:
 paths:
   "/consumers":
     post:
+      operationId: CreateConsumer
       parameters:
       - in: body
         name: ConsumerInput
@@ -24,6 +24,7 @@ paths:
         '200':
           description: Consumer was created
     delete:
+      operationId: DeleteConsumer
       parameters:
       - in: body
         name: ConsumerInput
@@ -42,6 +43,7 @@ paths:
       type: string
       required: true
     get:
+      operationId: GetConsumer
       description: Get details about a consumer
       responses:
         '200':
@@ -57,6 +59,7 @@ paths:
       type: string
       required: true
     post:
+      operationId: CreateAPIKey
       description: Create an API Key
       parameters:
         - in: body
@@ -70,6 +73,7 @@ paths:
           schema:
             $ref: '#/definitions/APIKey'
     get:
+      operationId: ListAPIKeys
       description: List API Keys
       responses:
         '200':
@@ -94,11 +98,41 @@ paths:
       type: string
       required: true
     delete:
+      operationId: DeleteAPIKey
       description: Delete an API Key
       responses:
         '204':
           description: Deleted an API Key
-
+  "/apis/{api_id}/plugins":
+    get:
+      operationId: ListPlugins
+      responses:
+        '200':
+          description: List of plugins
+          schema:
+            type: object
+            properties:
+              total:
+                type: integer
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/Plugin'
+    post:
+      operationId: CreatePlugin
+      parameters:
+      - in: body
+        name: name
+        type: string
+        description: The plugin name to activate
+        schema:
+          $ref: '#/definitions/Plugin'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/Plugin'
+  # "/apis/{api_id}/plugins"
   "/oauth2":
     get:
       parameters:
@@ -174,6 +208,9 @@ definitions:
       custom_id:
         type: string
         example: "abc123"
+      username:
+        type: string
+        example: serviceaccount
       created_at:
         type: integer
         format: int64
@@ -195,3 +232,132 @@ definitions:
       key:
         type: string
         example: "62eb165c070a41d5c1b58d9d3d725ca1"
+  Plugin:
+    description: ""
+    type: object
+    properties:
+      id:
+        type: string
+        example: "4d924084-1adb-40a5-c042-63b19db421d1"
+      api_id:
+        type: string
+        example: "5fd1z584-1adb-40a5-c042-63b19db49x21"
+      consumer_id:
+        type: string
+        example: "a3dX2dh2-1adb-40a5-c042-63b19dbx83hF4"
+      name:
+        type: string
+        example: rate-limiting
+      config:
+        type: object
+        description: "Based on the 'name' property, this field should be unmarshalled into any of the implemented plugin config objects"
+        example: |
+          { "minute": 20,
+              "hour": 500
+          }
+      enabled:
+        type: boolean
+        example: true
+      created_at:
+        type: integer
+        format: int64
+        example: 1422386534
+  PluginConfigCORS:
+    type: object
+    properties:
+      origins:
+        type: array
+        items:
+          type: string
+        example: ["*"]
+      credentials:
+        type: boolean
+        example: false
+      preflight_continue:
+        type: boolean
+        example: false
+  PluginConfigRateLimiting:
+    type: object
+    properties:
+      second:
+        type: integer
+        example: 1
+      minute:
+        type: integer
+        example: 1
+      hour:
+        type: integer
+        example: 1
+      day:
+        type: integer
+        example: 1
+      month:
+        type: integer
+        example: 1
+      year:
+        type: integer
+        example: 1
+      limit_by:
+        type: string
+        example: "one of: consumer or credential or ip"
+      policy:
+        type: string
+        example: "one of: cluster or local or redis"
+      fault_tolerant:
+        type: boolean
+        example: true
+      hide_client_headers:
+        type: boolean
+        example: false
+      redis_host:
+        type: string
+      redis_port:
+        type: integer
+        example: 6379
+      redis_password:
+        type: string
+      redis_timeout:
+        type: integer
+        example: 2000
+      redis_database:
+        type: integer
+        example: 0
+  PluginConfigKeyAuth:
+    type: object
+    properties:
+      key_names:
+        type: string
+        example: apikey
+      key_in_body:
+        type: boolean
+        example: false
+      hide_credentials:
+        type: boolean
+        example: false
+      anonymous:
+        type: string
+        example: "consumer-uuid"
+      run_on_preflight:
+        type: boolean
+        example: true
+  PluginConfigJWT:
+    type: object
+    properties:
+      uri_param_names:
+        type: string
+        example: jwt
+      claims_to_verify:
+        type: string
+        example: "one of: exp or nbf"
+      key_claim_name:
+        type: string
+        example: iss
+      secret_is_base64:
+        type: boolean
+        example: false
+      anonymous:
+        type: string
+        example: "consumer_id"
+      run_on_preflight:
+        type: boolean
+        example: true

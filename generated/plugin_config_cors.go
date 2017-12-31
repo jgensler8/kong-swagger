@@ -10,9 +10,11 @@
 
 package swagger
 
-type InlineResponse2001 struct {
+type PluginConfigCors struct {
 
-	Total int32 `json:"total,omitempty"`
+	Origins []string `json:"origins,omitempty"`
 
-	Data []Plugin `json:"data,omitempty"`
+	Credentials bool `json:"credentials,omitempty"`
+
+	PreflightContinue bool `json:"preflight_continue,omitempty"`
 }
