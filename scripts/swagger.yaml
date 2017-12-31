@@ -104,6 +104,11 @@ paths:
         '204':
           description: Deleted an API Key
   "/apis/{api_id}/plugins":
+    parameters:
+    - name: api_id
+      in: path
+      type: string
+      required: true
     get:
       operationId: ListPlugins
       responses:
@@ -122,7 +127,7 @@ paths:
       operationId: CreatePlugin
       parameters:
       - in: body
-        name: name
+        name: plugin
         type: string
         description: The plugin name to activate
         schema:
