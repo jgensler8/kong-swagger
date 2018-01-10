@@ -58,10 +58,10 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateCertificate**
-> CreateCertificate(optional)
+> Certificate CreateCertificate(optional)
 
 
-asdf
+Create a Certificate
 
 ### Required Parameters
 
@@ -74,11 +74,11 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **plugin** | [**Certificate**](Certificate.md)| The plugin name to activate | 
+ **certificate** | [**Certificate**](Certificate.md)| The plugin name to activate | 
 
 ### Return type
 
- (empty response body)
+[**Certificate**](Certificate.md)
 
 ### Authorization
 
@@ -150,7 +150,7 @@ No authorization required
 > Plugin CreatePlugin(apiId, optional)
 
 
-asdf
+Enable a plugin for an API
 
 ### Required Parameters
 
