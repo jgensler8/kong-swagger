@@ -12,21 +12,7 @@ package swagger
 
 type InlineResponse2003 struct {
 
-	ExpiresIn int32 `json:"expires_in,omitempty"`
+	Total int32 `json:"total,omitempty"`
 
-	AuthenticatedUserid string `json:"authenticated_userid,omitempty"`
-
-	Id string `json:"id,omitempty"`
-
-	CredentialId string `json:"credential_id,omitempty"`
-
-	CreatedAt int32 `json:"created_at,omitempty"`
-
-	RefreshToken string `json:"refresh_token,omitempty"`
-
-	TokenType string `json:"token_type,omitempty"`
-
-	AccessToken string `json:"access_token,omitempty"`
-
-	Scope string `json:"scope,omitempty"`
+	Data []InlineResponse2003Data `json:"data,omitempty"`
 }

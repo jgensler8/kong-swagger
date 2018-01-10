@@ -14,5 +14,5 @@ type InlineResponse2001 struct {
 
 	Total int32 `json:"total,omitempty"`
 
-	Data []Plugin `json:"data,omitempty"`
+	Data []JwtCredential `json:"data,omitempty"`
 }

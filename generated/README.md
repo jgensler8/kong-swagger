@@ -22,12 +22,17 @@ All URIs are relative to *https://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**CreateAPIKey**](docs/DefaultApi.md#createapikey) | **Post** /consumers/{consumer_id}/key-auth | 
+*DefaultApi* | [**CreateCertificate**](docs/DefaultApi.md#createcertificate) | **Post** /certificates | 
 *DefaultApi* | [**CreateConsumer**](docs/DefaultApi.md#createconsumer) | **Post** /consumers | 
+*DefaultApi* | [**CreateJWTCredential**](docs/DefaultApi.md#createjwtcredential) | **Post** /consumers/{consumer_id}/jwt | 
 *DefaultApi* | [**CreatePlugin**](docs/DefaultApi.md#createplugin) | **Post** /apis/{api_id}/plugins | 
 *DefaultApi* | [**DeleteAPIKey**](docs/DefaultApi.md#deleteapikey) | **Delete** /consumers/{consumer_id}/key-auth/{apikey_id} | 
 *DefaultApi* | [**DeleteConsumer**](docs/DefaultApi.md#deleteconsumer) | **Delete** /consumers | 
+*DefaultApi* | [**GetCertificate**](docs/DefaultApi.md#getcertificate) | **Get** /certificates/{sni} | 
 *DefaultApi* | [**GetConsumer**](docs/DefaultApi.md#getconsumer) | **Get** /consumers/{consumer_id} | 
 *DefaultApi* | [**ListAPIKeys**](docs/DefaultApi.md#listapikeys) | **Get** /consumers/{consumer_id}/key-auth | 
+*DefaultApi* | [**ListCertificates**](docs/DefaultApi.md#listcertificates) | **Get** /certificates | 
+*DefaultApi* | [**ListJWTCredentials**](docs/DefaultApi.md#listjwtcredentials) | **Get** /consumers/{consumer_id}/jwt | 
 *DefaultApi* | [**ListPlugins**](docs/DefaultApi.md#listplugins) | **Get** /apis/{api_id}/plugins | 
 *DefaultApi* | [**Oauth2Get**](docs/DefaultApi.md#oauth2get) | **Get** /oauth2 | 
 *DefaultApi* | [**Oauth2TokensTokenGet**](docs/DefaultApi.md#oauth2tokenstokenget) | **Get** /oauth2_tokens/{token} | 
@@ -36,12 +41,15 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [ApiKey](docs/ApiKey.md)
+ - [Certificate](docs/Certificate.md)
  - [Consumer](docs/Consumer.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
- - [InlineResponse2002Data](docs/InlineResponse2002Data.md)
  - [InlineResponse2003](docs/InlineResponse2003.md)
+ - [InlineResponse2003Data](docs/InlineResponse2003Data.md)
+ - [InlineResponse2004](docs/InlineResponse2004.md)
+ - [JwtCredential](docs/JwtCredential.md)
  - [Plugin](docs/Plugin.md)
  - [PluginConfigCors](docs/PluginConfigCors.md)
  - [PluginConfigJwt](docs/PluginConfigJwt.md)
