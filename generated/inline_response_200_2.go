@@ -14,5 +14,5 @@ type InlineResponse2002 struct {
 
 	Total int32 `json:"total,omitempty"`
 
-	Data []InlineResponse2002Data `json:"data,omitempty"`
+	Data []Plugin `json:"data,omitempty"`
 }

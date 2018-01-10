@@ -1,10 +1,12 @@
-# InlineResponse2003
+# JwtCredential
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Total** | **int32** |  | [optional] [default to null]
-**Data** | [**[]InlineResponse2003Data**](inline_response_200_3_data.md) |  | [optional] [default to null]
+**Key** | **string** |  | [optional] [default to null]
+**Algorithm** | **string** |  | [optional] [default to null]
+**RsaPublicKey** | **string** |  | [optional] [default to null]
+**Secret** | **string** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
