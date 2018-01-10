@@ -98,17 +98,18 @@ func (a *DefaultApiService) CreateAPIKey(consumerId string, localVarOptionals ma
 }
 
 /* DefaultApiService 
- asdf
+ Create a Certificate
 
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "plugin" (Certificate) The plugin name to activate
- @return */
-func (a *DefaultApiService) CreateCertificate(localVarOptionals map[string]interface{}) ( *http.Response, error) {
+     @param "certificate" (Certificate) The plugin name to activate
+ @return Certificate*/
+func (a *DefaultApiService) CreateCertificate(localVarOptionals map[string]interface{}) (Certificate,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
+	 	successPayload  Certificate
 	)
 
 	// create path and map variables
@@ -139,24 +140,29 @@ func (a *DefaultApiService) CreateCertificate(localVarOptionals map[string]inter
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	if localVarTempParam, localVarOk := localVarOptionals["plugin"].(Certificate); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["certificate"].(Certificate); localVarOk {
 		localVarPostBody = &localVarTempParam
 	}
 	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return successPayload, nil, err
 	}
 
 	 localVarHttpResponse, err := a.client.callAPI(r)
 	 if err != nil || localVarHttpResponse == nil {
-		  return localVarHttpResponse, err
+		  return successPayload, localVarHttpResponse, err
 	 }
 	 defer localVarHttpResponse.Body.Close()
 	 if localVarHttpResponse.StatusCode >= 300 {
-		return localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 	 }
+	
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	 	return successPayload, localVarHttpResponse, err
+	}
 
-	return localVarHttpResponse, err
+
+	return successPayload, localVarHttpResponse, err
 }
 
 /* DefaultApiService 
@@ -286,7 +292,7 @@ func (a *DefaultApiService) CreateJWTCredential(consumerId string, jwtCredential
 }
 
 /* DefaultApiService 
- asdf
+ Enable a plugin for an API
 
  @param apiId 
  @param optional (nil or map[string]interface{}) with one or more of:

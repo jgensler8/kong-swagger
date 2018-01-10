@@ -160,7 +160,7 @@ paths:
                   $ref: '#/definitions/Plugin'
     post:
       operationId: CreatePlugin
-      description: "asdf"
+      description: "Enable a plugin for an API"
       parameters:
       - in: body
         name: plugin
@@ -176,16 +176,18 @@ paths:
   "/certificates":
     post:
       operationId: CreateCertificate
-      description: "asdf"
+      description: "Create a Certificate"
       parameters:
       - in: body
-        name: plugin
+        name: certificate
         description: The plugin name to activate
         schema:
           $ref: '#/definitions/Certificate'
       responses:
         '201':
           description: Created
+          schema:
+            $ref: '#/definitions/Certificate'
     get:
       operationId: ListCertificates
       responses:
