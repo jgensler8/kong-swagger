@@ -9,14 +9,17 @@ Method | HTTP request | Description
 [**CreateConsumer**](DefaultApi.md#CreateConsumer) | **Post** /consumers | 
 [**CreateJWTCredential**](DefaultApi.md#CreateJWTCredential) | **Post** /consumers/{consumer_id}/jwt | 
 [**CreatePlugin**](DefaultApi.md#CreatePlugin) | **Post** /apis/{api_id}/plugins | 
+[**CreateSNI**](DefaultApi.md#CreateSNI) | **Post** /snis | 
 [**DeleteAPIKey**](DefaultApi.md#DeleteAPIKey) | **Delete** /consumers/{consumer_id}/key-auth/{apikey_id} | 
 [**DeleteConsumer**](DefaultApi.md#DeleteConsumer) | **Delete** /consumers | 
 [**GetCertificate**](DefaultApi.md#GetCertificate) | **Get** /certificates/{sni} | 
 [**GetConsumer**](DefaultApi.md#GetConsumer) | **Get** /consumers/{consumer_id} | 
+[**GetSNI**](DefaultApi.md#GetSNI) | **Get** /snis/{sni} | 
 [**ListAPIKeys**](DefaultApi.md#ListAPIKeys) | **Get** /consumers/{consumer_id}/key-auth | 
 [**ListCertificates**](DefaultApi.md#ListCertificates) | **Get** /certificates | 
 [**ListJWTCredentials**](DefaultApi.md#ListJWTCredentials) | **Get** /consumers/{consumer_id}/jwt | 
 [**ListPlugins**](DefaultApi.md#ListPlugins) | **Get** /apis/{api_id}/plugins | 
+[**ListSNIs**](DefaultApi.md#ListSNIs) | **Get** /snis | 
 [**Oauth2Get**](DefaultApi.md#Oauth2Get) | **Get** /oauth2 | 
 [**Oauth2TokensTokenGet**](DefaultApi.md#Oauth2TokensTokenGet) | **Get** /oauth2_tokens/{token} | 
 
@@ -182,6 +185,40 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **CreateSNI**
+> Sni CreateSNI(optional)
+
+
+Create a SNI
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sni** | [**Sni**](Sni.md)| The sni to create | 
+
+### Return type
+
+[**Sni**](SNI.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **DeleteAPIKey**
 > DeleteAPIKey(consumerId, apikeyId)
 
@@ -289,6 +326,31 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetSNI**
+> Sni GetSNI(sni)
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+  **sni** | **string**|  | 
+
+### Return type
+
+[**Sni**](SNI.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **ListAPIKeys**
 > InlineResponse200 ListAPIKeys(consumerId)
 
@@ -378,6 +440,28 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InlineResponse2002**](inline_response_200_2.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ListSNIs**
+> []Sni ListSNIs()
+
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[]Sni**](SNI.md)
 
 ### Authorization
 

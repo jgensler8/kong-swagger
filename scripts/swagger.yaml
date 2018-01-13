@@ -210,6 +210,43 @@ paths:
           description: Success
           schema:
             $ref: '#/definitions/Certificate'
+  "/snis":
+    post:
+      operationId: CreateSNI
+      description: "Create a SNI"
+      parameters:
+      - in: body
+        name: sni
+        description: The sni to create
+        schema:
+          $ref: '#/definitions/SNI'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/SNI'
+    get:
+      operationId: ListSNIs
+      responses:
+        '200':
+          description: List of SNIs
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SNI'
+  "/snis/{sni}":
+    parameters:
+    - name: sni
+      in: path
+      type: string
+      required: true
+    get:
+      operationId: GetSNI
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/SNI'
   "/oauth2":
     get:
       parameters:
@@ -473,3 +510,16 @@ definitions:
       created_at:
         type: integer
         format: int64
+  SNI:
+    type: object
+    properties:
+      name:
+        type: string
+        example: "example.com"
+      ssl_certificate_id:
+        type: string
+        example: "21b69eab-09d9-40f9-a55e-c4ee47fada68"
+      created_at:
+        type: integer
+        format: int64
+        example: 1485521710265
