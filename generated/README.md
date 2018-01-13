@@ -26,14 +26,17 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**CreateConsumer**](docs/DefaultApi.md#createconsumer) | **Post** /consumers | 
 *DefaultApi* | [**CreateJWTCredential**](docs/DefaultApi.md#createjwtcredential) | **Post** /consumers/{consumer_id}/jwt | 
 *DefaultApi* | [**CreatePlugin**](docs/DefaultApi.md#createplugin) | **Post** /apis/{api_id}/plugins | 
+*DefaultApi* | [**CreateSNI**](docs/DefaultApi.md#createsni) | **Post** /snis | 
 *DefaultApi* | [**DeleteAPIKey**](docs/DefaultApi.md#deleteapikey) | **Delete** /consumers/{consumer_id}/key-auth/{apikey_id} | 
 *DefaultApi* | [**DeleteConsumer**](docs/DefaultApi.md#deleteconsumer) | **Delete** /consumers | 
 *DefaultApi* | [**GetCertificate**](docs/DefaultApi.md#getcertificate) | **Get** /certificates/{sni} | 
 *DefaultApi* | [**GetConsumer**](docs/DefaultApi.md#getconsumer) | **Get** /consumers/{consumer_id} | 
+*DefaultApi* | [**GetSNI**](docs/DefaultApi.md#getsni) | **Get** /snis/{sni} | 
 *DefaultApi* | [**ListAPIKeys**](docs/DefaultApi.md#listapikeys) | **Get** /consumers/{consumer_id}/key-auth | 
 *DefaultApi* | [**ListCertificates**](docs/DefaultApi.md#listcertificates) | **Get** /certificates | 
 *DefaultApi* | [**ListJWTCredentials**](docs/DefaultApi.md#listjwtcredentials) | **Get** /consumers/{consumer_id}/jwt | 
 *DefaultApi* | [**ListPlugins**](docs/DefaultApi.md#listplugins) | **Get** /apis/{api_id}/plugins | 
+*DefaultApi* | [**ListSNIs**](docs/DefaultApi.md#listsnis) | **Get** /snis | 
 *DefaultApi* | [**Oauth2Get**](docs/DefaultApi.md#oauth2get) | **Get** /oauth2 | 
 *DefaultApi* | [**Oauth2TokensTokenGet**](docs/DefaultApi.md#oauth2tokenstokenget) | **Get** /oauth2_tokens/{token} | 
 
@@ -55,6 +58,7 @@ Class | Method | HTTP request | Description
  - [PluginConfigJwt](docs/PluginConfigJwt.md)
  - [PluginConfigKeyAuth](docs/PluginConfigKeyAuth.md)
  - [PluginConfigRateLimiting](docs/PluginConfigRateLimiting.md)
+ - [Sni](docs/Sni.md)
 
 
 ## Documentation For Authorization
